@@ -1,5 +1,7 @@
 from typing import List
 from ..enums.suit import Suit
+import copy
+import random
 
 class Card:
     def __init__(self, rank: int, suit: Suit):
@@ -25,3 +27,10 @@ def get_card_deck() -> List[Card]:
         res.append(Card(0, Suit.Joker))
     
     return res
+
+def shuffle_deck(deck: List[Card]) -> List[Card]:
+    new_deck = copy.deepcopy(deck)
+    random.shuffle(new_deck)
+
+    return new_deck
+
